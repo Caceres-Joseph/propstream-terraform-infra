@@ -5,7 +5,7 @@ env:
     SECRET_KEY_BASE: "/codepipeline/terraform-infra/Environment"
 
 phases:
-  init:
+  install:
     commands:
       - echo test
       - terraform init -backend-config=config/backend.tf
