@@ -5,9 +5,10 @@ env:
     SECRET_KEY_BASE: "/codepipeline/terraform-infra/Environment"
 
 phases:
-  build:
+  init:
     commands:
       - echo test
+      - terraform init -backend-config=config/backend.tf
       - echo $SECRET_KEY_BASE
 artifacts:
   files:
