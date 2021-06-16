@@ -1,5 +1,5 @@
-bucket         = "propstream-terraform"
+bucket         = "propstream-terraform-state"
 encrypt        = true
 key            = "propstream/terraform.tfstate"
-region         = "us-east-1"
+region         = "us-west-2"
 dynamodb_table = "terraform-state"

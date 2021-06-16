@@ -2,14 +2,15 @@ version: 0.2
 
 env:
   parameter-store:
-    SECRET_KEY_BASE: "/codepipeline/terraform-infra/Environment"
+    ENV: "/codepipeline/terraform-infra/Environment"
 
 phases:
   install:
     commands:
       - echo test
       - terraform init -backend-config=config/backend.tf
-      - echo $SECRET_KEY_BASE
+      - terraform workspace new $ENV
+      - terraform workspaces list
 artifacts:
   files:
     - '**/*'
