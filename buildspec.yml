@@ -9,8 +9,12 @@ phases:
     commands:
       - echo test
       - terraform init -backend-config=config/backend.tf
-      - terraform workspace new $ENV
-      - terraform workspaces list
+  pre_build:
+    commands:
+      - terraform workspace new $ENV | terraform workspace select $ENV
+  build:
+    commands:
+      - terraform apply -auto-approve -var-file=config/$ENV.tfvars
 artifacts:
   files:
     - '**/*'

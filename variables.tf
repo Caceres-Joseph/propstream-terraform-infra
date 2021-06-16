@@ -33,6 +33,12 @@ variable "instance_type" {
   type        = string
 }
 
+variable "cross_role" {
+  description = "Cross account role to perform the deployment"
+  default     = ""
+  type        = string
+}
+
 variable "db_instance_type" {
   description = "DB Instance type to use"
   default     = "db.t3.large"
