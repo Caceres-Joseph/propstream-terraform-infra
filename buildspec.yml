@@ -1,10 +1,14 @@
 version: 0.2
 
+env:
+  parameter-store:
+    SECRET_KEY_BASE: "/codepipeline/terraform-infra/Environment"
+
 phases:
   build:
     commands:
       - echo test
-      - echo $Environment
+      - echo $SECRET_KEY_BASE
 artifacts:
   files:
     - '**/*'
