@@ -10,6 +10,7 @@ phases:
       - echo test
       - terraform init -backend-config=config/backend.tf
   pre_build:
+    on-failure: CONTINUE
     commands:
       - terraform workspace new $ENV | terraform workspace select $ENV
   build:
